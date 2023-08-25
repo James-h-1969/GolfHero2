@@ -1,0 +1,42 @@
+CLASS STRUCTURE:
+
+    Game
+
+    Start Screen
+        playStartAnimation -> void 
+        showingInstructions: boolean
+
+    Score Card Screen
+        totalStrokes: int
+        levelStrokes: List[int] //strokes made on each levelStrokes
+
+    End Screen
+        playEndAnimation -> void
+
+    Level:
+        walls: List[Walls] //holds 9 Walls class (for each level)
+        flag: List[List[int]] //holds pos of flag for each level
+        currentLevel: int
+
+    Play Level
+        ball: Ball
+        currentWalls: Walls //includes obstacles
+        currentFlag: List[int] //coords of flag
+
+    Walls:
+        
+
+    Ball:
+        x coord: int
+        y coord: int
+        x speed: int
+        y speed: int
+
+    
+
+    Constants
+        gravity: float
+
+
+
+
