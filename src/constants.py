@@ -7,7 +7,6 @@ SCREEN_HEIGHT = 650
 
 FPS = 60
 
-
 def checkExit(events: List[pygame.event.Event]):
     """
     Sees whether the program should exit
@@ -20,5 +19,6 @@ def checkExit(events: List[pygame.event.Event]):
     """
     for event in events:
         if event.type == pygame.QUIT:
+            print(" Ending your pygame session... Thanks for playing!")
             pygame.quit()
             sys.exit()

@@ -1,7 +1,8 @@
 import pygame
 from constants import *
 import sys
-
+from StartScreen import *
+from Draw import *
 
 
 def main():
@@ -11,11 +12,12 @@ def main():
     CLOCK = pygame.time.Clock() # create the clock    
     pygame.display.set_caption("GOLF HERO") # set the caption of the window
 
+    ## CREATE INSTANCES OF EACH OBJECT ##
+    draw = Draw(WINDOW)
+    start_screen = StartScreen(CLOCK, draw)
 
-    running = True
-    while running:
-        CLOCK.tick(FPS)
-        checkExit(pygame.event.get())
+    ## BEGIN GAME LOGIC ##
+    start_screen.begin()
 
 
 if __name__ == "__main__":
