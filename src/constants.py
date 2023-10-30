@@ -2,11 +2,17 @@ import pygame
 import sys
 from typing import List
 
+# constants for the screen
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 650
 
+#timing constants
 FPS = 60
 
+# golf constants
+HOLES = 9
+
+# HELPER FUNCTIONS
 def checkExit(events: List[pygame.event.Event]):
     """
     Sees whether the program should exit
