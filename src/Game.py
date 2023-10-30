@@ -3,9 +3,12 @@ from constants import *
 import sys
 from StartScreen import *
 from Draw import *
+from Levels import *
 
 
 def main():
+    print("Beginning Golf Hero 2 ... Good luck!")
+    
     ##  INITIATE THE PYGAME FUNCTIONS  ##
     pygame.init()
     WINDOW = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) # set the screen dimensions
@@ -14,7 +17,8 @@ def main():
 
     ## CREATE INSTANCES OF EACH OBJECT ##
     draw = Draw(WINDOW)
-    start_screen = StartScreen(CLOCK, draw)
+    levels = Levels()
+    start_screen = StartScreen(CLOCK, draw, levels)
 
     ## BEGIN GAME LOGIC ##
     start_screen.begin()

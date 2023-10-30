@@ -12,6 +12,10 @@ FPS = 60
 # golf constants
 HOLES = 9
 
+# colour constants
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+
 # HELPER FUNCTIONS
 def checkExit(events: List[pygame.event.Event]):
     """
