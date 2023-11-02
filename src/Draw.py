@@ -37,3 +37,6 @@ class Draw():
 
     def draw_background(self, image):
         self.window.blit(image, (0, 0))
+
+    def logo(self):
+        make_and_place_text(SCREEN_WIDTH - 300, SCREEN_HEIGHT - 50, "Arial", 30, "Made by Bogey Boys Inc.", WHITE, self.window)

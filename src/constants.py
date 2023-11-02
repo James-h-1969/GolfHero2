@@ -17,6 +17,7 @@ HOLES = 9
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 
 # HELPER FUNCTIONS
 def check_exit(events: List[pygame.event.Event]):
@@ -62,6 +63,9 @@ def make_and_place_text(text_x:int, text_y:int, font_name:str, font_size:int,  t
     text -> actual words to display
     colour -> colour of the font
     window -> window to display the text on
+
+    Returns
+    None
     
     """
     font = pygame.font.SysFont(font_name, font_size)

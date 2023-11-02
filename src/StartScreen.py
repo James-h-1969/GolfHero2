@@ -26,7 +26,8 @@ class StartScreen():
             check_exit(pygame.event.get())
             # add music
             self.draw.draw_background(get_and_scale_image('background.jpg', SCREEN_WIDTH, SCREEN_HEIGHT)) # draws background
-            make_and_place_text(SCREEN_WIDTH/2 - 130, 150, "Ariel", 80, "Pick Level", BLACK, self.window)
+            make_and_place_text(SCREEN_WIDTH/2 - 220, 110, "Ariel", 140, "Pick Level", WHITE, self.window) # writes title
+            self.draw.logo() # shows made by bogey boys
             # clicking on box should result in either starting level or displaying (you dont have access to this level)
             self.draw.show_available_levels(self.levels, True) # show how many levels there are currently selected
 
