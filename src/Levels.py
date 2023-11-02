@@ -32,6 +32,11 @@ class Levels():
         """
         return self.unlocked[i-1]
 
-
+    def play_level(self, i: int) -> None:
+        """
+        plays the level till exit or finish
+        
+        """
+        print("Starting Level " + str(i) + " ! ")
 
 
