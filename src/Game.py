@@ -18,7 +18,7 @@ def main():
     ## CREATE INSTANCES OF EACH OBJECT ##
     draw = Draw(WINDOW)
     levels = Levels()
-    start_screen = StartScreen(CLOCK, draw, levels)
+    start_screen = StartScreen(CLOCK, draw, levels, WINDOW)
 
     ## BEGIN GAME LOGIC ##
     start_screen.begin()
