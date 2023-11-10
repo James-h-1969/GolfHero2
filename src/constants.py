@@ -72,3 +72,6 @@ def make_and_place_text(text_x:int, text_y:int, font_name:str, font_size:int,  t
     text_placement = (text_x, text_y)  
     start = font.render(text, 1, colour)
     window.blit(start, text_placement)
+
+def is_mouse_in_box(mouse_coords, box_x, box_y, box_width, box_height): 
+    return mouse_coords[0] >= box_x and mouse_coords[0] <= (box_x + box_width) and mouse_coords[1] >= box_y and mouse_coords[1] <= (box_y + box_height)
