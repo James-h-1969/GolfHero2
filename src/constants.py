@@ -6,18 +6,30 @@ from typing import List
 # constants for the screen
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 650
+PADDING = 20
 
 #timing constants
 FPS = 60
 
 # golf constants
 HOLES = 9
+BALL_SIZE = 5 # radius of the ball
+ARROW_SIZE = 50
+ARROW_THICKNESS = 5
+MAX_POWER = 400
 
 # colour constants
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+YELLOW = (0, 100, 100)
+ORANGE = (100, 100, 100)
+
+# random constants
+ELASTICITY_COEFFICENT = 0.7
+GRAVITY = 0.7
+BOTTOM_FLOOR_HEIGHT = 550
 
 # HELPER FUNCTIONS
 def check_exit(events: List[pygame.event.Event]):

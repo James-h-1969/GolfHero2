@@ -25,6 +25,7 @@ class StartScreen():
         
         """
         print("Entering the home page ... ")
+        self.running = True
         while self.running:
             self.clock.tick(FPS)
             events = pygame.event.get()
@@ -36,6 +37,8 @@ class StartScreen():
             if self.showing_locked:
                 make_and_place_text(SCREEN_WIDTH/2 - 90, 560, "Ariel", 40, "Hole " + self.locked_level + " is locked.", RED, self.window) # writes title
             self.draw.show_available_levels(self.levels, True, events, self.quit_homepage, self.show_locked) # show how many levels there are currently selected
+
+        return "Levels"
 
     def quit_homepage(self):
         self.running = False

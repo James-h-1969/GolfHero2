@@ -17,11 +17,19 @@ def main():
 
     ## CREATE INSTANCES OF EACH OBJECT ##
     draw = Draw(WINDOW)
-    levels = Levels()
+    levels = Levels(CLOCK, draw)
     start_screen = StartScreen(CLOCK, draw, levels, WINDOW)
 
     ## BEGIN GAME LOGIC ##
     start_screen.begin()
-
+    main_running = True
+    current_state = "Levels"
+    while main_running:
+        ## BEGIN GAME LOGIC ##
+        if current_state == "Levels":
+            current_state = levels.play_level()
+        if current_state == "Level Select":
+            current_state = start_screen.homepage()
+        
 if __name__ == "__main__":
     main()

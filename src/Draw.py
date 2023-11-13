@@ -2,6 +2,7 @@ import pygame
 from typing import List
 from constants import *
 import Levels
+from Ball import Ball
 
 class Draw():
     def __init__(self, window):
@@ -64,3 +65,10 @@ class Draw():
 
     def logo(self):
         make_and_place_text(SCREEN_WIDTH - 300, SCREEN_HEIGHT - 50, "Arial", 30, "Made by Bogey Boys Inc.", WHITE, self.window)
+
+    def draw_colour(self):
+        self.window.fill(BLACK)
+
+    def draw_power(self, power_bar):
+        pygame.draw.rect(self.window, WHITE, power_bar.bounding_rect)
+        pygame.draw.rect(self.window, power_bar.colour, power_bar.rect)
