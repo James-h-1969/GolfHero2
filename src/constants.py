@@ -17,18 +17,19 @@ BALL_SIZE = 5 # radius of the ball
 ARROW_SIZE = 50
 ARROW_THICKNESS = 5
 MAX_POWER = 400
+POWER_INCREMENT = 5
 
-# colour constants
+# colour constants (RGB)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-YELLOW = (0, 100, 100)
-ORANGE = (100, 100, 100)
+YELLOW = (220, 220, 10)
+ORANGE = (220, 120, 10)
 
 # random constants
-ELASTICITY_COEFFICENT = 0.7
-GRAVITY = 0.7
+ELASTICITY_COEFFICENT = 0.4
+GRAVITY = 0.1
 BOTTOM_FLOOR_HEIGHT = 550
 
 # HELPER FUNCTIONS
@@ -47,6 +48,18 @@ def check_exit(events: List[pygame.event.Event]):
             print("Ending your pygame session... Thanks for playing!")
             pygame.quit()
             sys.exit()
+
+def check_button_down(events: List[pygame.event.Event], button:str) -> bool:
+    for event in events:
+        if event.type == pygame.KEYDOWN:
+            return True
+    return False
+
+def check_button_up(events: List[pygame.event.Event], button:str) -> bool:
+    for event in events:
+        if event.type == pygame.KEYUP:
+            return True
+    return False
 
 def get_and_scale_image(image_name: str, width: int, height: int):
     """

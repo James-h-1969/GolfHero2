@@ -69,6 +69,9 @@ class Draw():
     def draw_colour(self):
         self.window.fill(BLACK)
 
+    def draw_score(self, score):
+        make_and_place_text(SCREEN_WIDTH - 40, 20, "Arial", 60, str(score.get_score()), WHITE, self.window)
+
     def draw_power(self, power_bar):
         pygame.draw.rect(self.window, WHITE, power_bar.bounding_rect)
         pygame.draw.rect(self.window, power_bar.colour, power_bar.rect)

@@ -38,7 +38,7 @@ class Levels():
         """
         return self.unlocked[i-1]
 
-    def play_level(self) -> None:
+    def play_level(self, score) -> None:
         """
         plays the level till exit or finish
         
@@ -49,22 +49,48 @@ class Levels():
         self.running = True
         ball = Ball(100, 300)
         power_bar = PowerBar()
+        pressed = False
 
         while self.running:
             self.clock.tick(FPS)
             events = pygame.event.get()
             check_exit(events)
+
+            # Handle adding the power
+            if check_button_down(events, "SPACE"):
+                pressed = True
+            if check_button_up(events, "SPACE"):
+                pressed = False
+                if not ball.airborne:
+                    ball.give_velocity(power_bar.strength) # need to give a dx, dy. should get this from the direction of the arrow (in the ball, and the power)
+                    ball.set_airborne()
+                    score.add_to_score(1)
+                power_bar.reset()
+            if pressed:
+                power_bar.add_power()
+
             power_bar.current_power_bar()
 
             mouse_coords = pygame.mouse.get_pos() 
             self.draw.draw_colour()
             ball.draw_ball(self.draw.window)
-            ball.show_arrow(self.draw.window, mouse_coords)
-            if ball.y < BOTTOM_FLOOR_HEIGHT and ball.dy >= 0:
+            ball.show_arrow(self.draw.window, mouse_coords, power_bar.strength)
+
+            if ball.y < BOTTOM_FLOOR_HEIGHT and ball.x >= 0 and ball.x < SCREEN_WIDTH:
                 ball.update_pos()
             else:
-                ball.bounce(vert=True)
+                if ball.y >= BOTTOM_FLOOR_HEIGHT:
+                    ball.bounce(vert=True, lim=BOTTOM_FLOOR_HEIGHT)
+                else:
+                    if ball.x < 0:
+                        ball.bounce(vert=False, lim=0)
+                    else:
+                        ball.bounce(vert=False, lim=SCREEN_WIDTH)
+
+            
+
             self.draw.draw_power(power_bar)
+            self.draw.draw_score(score)
             pygame.display.update()
             # Create a ball at the required place
             # check whether it gets to the hole

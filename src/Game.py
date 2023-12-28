@@ -4,6 +4,7 @@ import sys
 from StartScreen import *
 from Draw import *
 from Levels import *
+from Score import *
 
 
 def main():
@@ -19,6 +20,7 @@ def main():
     draw = Draw(WINDOW)
     levels = Levels(CLOCK, draw)
     start_screen = StartScreen(CLOCK, draw, levels, WINDOW)
+    score = Score()
 
     ## BEGIN GAME LOGIC ##
     start_screen.begin()
@@ -27,7 +29,7 @@ def main():
     while main_running:
         ## BEGIN GAME LOGIC ##
         if current_state == "Levels":
-            current_state = levels.play_level()
+            current_state = levels.play_level(score)
         if current_state == "Level Select":
             current_state = start_screen.homepage()
         
